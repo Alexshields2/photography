@@ -1,0 +1,212 @@
+<!-- meta: page=contact | title=Check Your Date — Halcyon Studio | description=Tell us about your wedding, portrait or brand shoot. Halcyon Studio replies to every enquiry within 24 hours. Now booking 2027 and 2028. -->
+{{> head}}
+<main id="main">
+  <section class="page-hero" style="padding-bottom:clamp(40px,6vw,90px)">
+    <div class="wrap">
+      <div class="crumbs"><span class="label" data-fade="intro">Enquiries — reply within 24 hours</span></div>
+      <div class="page-hero-grid">
+        <h1 class="display" data-split="intro">Tell us your <em>story.</em></h1>
+        <div class="page-hero-meta" data-fade="intro">
+          <div class="trust-rating" style="justify-content:flex-end">
+            <span class="avatars">{{img wedding-04||34px}}{{img portrait-10||34px}}{{img portrait-11||34px}}</span>
+            <span><span class="stars">{{icon star}}{{icon star}}{{icon star}}{{icon star}}{{icon star}}</span><br><b>5.0</b> from 312 reviews</span>
+          </div>
+          <p>Four quick steps — about two minutes. We'll come back with availability, ideas and a time to talk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap contact-grid">
+      <aside class="contact-aside" aria-label="Studio details">
+        <div class="info-card" data-fade>
+          <h3>Wedding availability</h3>
+          <ul class="avail-list">
+            <li>May 2027 <span class="avail-status is-low"><i></i>2 dates left</span></li>
+            <li>June 2027 <span class="avail-status is-full"><i></i>Fully booked</span></li>
+            <li>July 2027 <span class="avail-status is-low"><i></i>1 date left</span></li>
+            <li>August 2027 <span class="avail-status is-full"><i></i>Fully booked</span></li>
+            <li>September 2027 <span class="avail-status"><i></i>4 dates open</span></li>
+            <li>2028 season <span class="avail-status"><i></i>Now open</span></li>
+          </ul>
+        </div>
+        <div class="contact-lines" data-fade>
+          <span class="label label--plain">Prefer to talk?</span>
+          <a class="link" href="mailto:hello@halcyon.studio">hello@halcyon.studio</a>
+          <a class="link" href="tel:+35315550142">+353 1 555 0142</a>
+          <p class="muted" style="margin-top:12px;font-size:14px">Studio 4, The Tannery, Dublin 8 — visits by appointment, Mon–Sat.</p>
+        </div>
+        <div class="media ratio-32" data-reveal>{{img studio-01|The Halcyon daylight studio in Dublin|(max-width: 900px) 100vw, 35vw}}</div>
+      </aside>
+
+      <div class="form" data-fade>
+        <div class="form-progress" aria-hidden="true">
+          <span class="form-step-label">Step 1 of 4</span>
+          <span class="form-progress-bar"><i></i></span>
+        </div>
+
+        <!-- Set data-endpoint to a form handler (e.g. Formspree) to receive enquiries by email. -->
+        <form action="#" method="post" novalidate data-endpoint="">
+          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="package" value="">
+
+          <fieldset class="form-step is-active" style="border:0;padding:0;margin:0">
+            <h2>What are we <em>photographing?</em></h2>
+            <p>Choose the option that fits best — we'll tailor everything else to it.</p>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="type" value="wedding" required><span class="choice-body">{{icon ring}}<b>Wedding</b><small>Full day or weekend</small></span></label>
+              <label class="choice"><input type="radio" name="type" value="elopement"><span class="choice-body">{{icon mountain}}<b>Elopement</b><small>Intimate, anywhere</small></span></label>
+              <label class="choice"><input type="radio" name="type" value="portrait"><span class="choice-body">{{icon user}}<b>Portrait</b><small>Personal or family</small></span></label>
+              <label class="choice"><input type="radio" name="type" value="editorial"><span class="choice-body">{{icon aperture}}<b>Editorial</b><small>Fashion &amp; lookbooks</small></span></label>
+              <label class="choice"><input type="radio" name="type" value="commercial"><span class="choice-body">{{icon brief}}<b>Brand</b><small>Commercial &amp; product</small></span></label>
+              <label class="choice"><input type="radio" name="type" value="event"><span class="choice-body">{{icon glass}}<b>Event</b><small>Launches &amp; galas</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" style="border:0;padding:0;margin:0">
+            <h2>When &amp; <em>where?</em></h2>
+            <p>Not sure yet? That's completely fine — tick the box and we'll help you choose.</p>
+            <div class="field-grid">
+              <div class="field">
+                <label for="f-date">Date</label>
+                <input id="f-date" type="date" name="date" required>
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="f-location">Location or venue</label>
+                <input id="f-location" type="text" name="location" placeholder="e.g. Ballyfin, Co. Laois" required autocomplete="off">
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="field field--full">
+                <div class="chips">
+                  <label class="choice"><input type="checkbox" name="flexible" value="yes"><span class="choice-body">Our date isn't fixed yet</span></label>
+                  <label class="choice"><input type="checkbox" name="abroad" value="yes"><span class="choice-body">It's outside Ireland</span></label>
+                </div>
+              </div>
+              <div class="field field--full">
+                <label for="f-guests">Approximate guest count <span class="muted">(if relevant)</span></label>
+                <select id="f-guests" name="guests">
+                  <option value="">Select…</option>
+                  <option>Just us / under 20</option>
+                  <option>20–80</option>
+                  <option>80–150</option>
+                  <option>150+</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" style="border:0;padding:0;margin:0">
+            <h2>Tell us <em>more.</em></h2>
+            <p>The more we know, the better our ideas. What matters most to you?</p>
+            <div class="field-grid">
+              <div class="field field--full">
+                <span class="field-legend">Your photography budget</span>
+                <div class="budget-out" aria-hidden="true">€3,500</div>
+                <input type="range" name="budget" min="500" max="10000" step="250" value="3500" aria-label="Budget in euro">
+                <div class="range-scale"><span>€500</span><span>€10,000+</span></div>
+              </div>
+              <div class="field field--full">
+                <label for="f-story">Your story</label>
+                <textarea id="f-story" name="story" placeholder="How you met, the vibe you're dreaming of, photographers you love, anything at all…" required></textarea>
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="field field--full">
+                <label for="f-source">How did you find us?</label>
+                <select id="f-source" name="source">
+                  <option value="">Select…</option>
+                  <option>Instagram</option>
+                  <option>Google</option>
+                  <option>A friend or past client</option>
+                  <option>Our venue or planner</option>
+                  <option>A magazine or blog</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" style="border:0;padding:0;margin:0">
+            <h2>Where can we <em>reach you?</em></h2>
+            <p>We reply personally within 24 hours — usually much sooner.</p>
+            <div class="field-grid">
+              <div class="field">
+                <label for="f-name">Your name(s)</label>
+                <input id="f-name" type="text" name="name" placeholder="Saoirse &amp; Tom" required autocomplete="name">
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+                <span class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone <span class="muted">(optional)</span></label>
+                <input id="f-phone" type="tel" name="phone" placeholder="+353 …" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="f-contact">Best way to reach you</label>
+                <select id="f-contact" name="contact_pref">
+                  <option>Email</option>
+                  <option>Phone call</option>
+                  <option>WhatsApp</option>
+                  <option>Video call</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <p class="form-error-msg" role="alert"></p>
+          <div class="form-nav">
+            <button class="back" type="button" hidden>{{icon arrow-left}} Back</button>
+            <button class="btn btn--accent next" type="button" data-magnetic="0.2"><span class="btn-text"><span data-text="Continue">Continue</span></span>{{icon arrow}}</button>
+          </div>
+          <p class="form-assure">{{icon lock}} Your details are private and never shared. No spam, ever.</p>
+        </form>
+
+        <div class="form-success" role="status" aria-live="polite">
+          <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <h2>Thank you<span class="success-name"></span>. <em>We can't wait to hear more.</em></h2>
+          <p>Your enquiry is with us. Here's what happens next:</p>
+          <ol class="next-steps">
+            <li>Within 24 hours, you'll hear from Aoife or Rónán personally with availability.</li>
+            <li>We'll send our welcome guide and a link to book a relaxed video call.</li>
+            <li>If it feels right, we'll hold your date for 7 days — no pressure.</li>
+          </ol>
+          <div style="margin-top:36px"><a class="btn btn--ghost" href="work.html" data-label="Work"><span class="btn-text"><span data-text="Browse more work while you wait">Browse more work while you wait</span></span>{{icon arrow}}</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI FAQ (paper) ================================================ -->
+  <section class="section paper" aria-labelledby="cfaq-title">
+    <div class="wrap split split--top">
+      <div class="stack">
+        <span class="label" data-fade>Before you ask</span>
+        <h2 class="h2" id="cfaq-title" data-split>Quick <em>answers.</em></h2>
+        <div class="media ratio-45" data-reveal style="max-width:420px">{{img wedding-14|A long rustic wedding reception table|(max-width: 900px) 100vw, 30vw}}</div>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">How quickly will you reply?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div><p>Within 24 hours, every time — and usually the same day. If you haven't heard from us, check your spam folder or call the studio.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Is the consultation really free?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div><p>Yes — a relaxed 30-minute video call or coffee at the studio, with no obligation. It's as much about you choosing us as us understanding you.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">How do we secure our date?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div><p>Once you're ready, we send a simple contract and a 25% retainer invoice online. As soon as both are done, your date is locked and removed from our calendar.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Can we visit the studio?<span class="faq-icon" aria-hidden="true"></span></button>
+          <div class="faq-a"><div><p>Of course. We're in Dublin 8 and welcome visits by appointment Monday to Saturday — come and leaf through the albums in person.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{{> footer}}
+{{> scripts}}
