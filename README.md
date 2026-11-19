@@ -1,4 +1,4 @@
-# Halcyon Studio — photography website
+# Momentum — photography website
 
 A premium, motion-led five-page website for a photography studio. It's a static site with no framework and no server, so it can be hosted anywhere.
 
@@ -9,6 +9,7 @@ A premium, motion-led five-page website for a photography studio. It's a static 
 | Services | `services.html` | Four service stories, "included" grid, tabbed pricing (Weddings / Portraits / Brand), stacked sticky process cards, FAQ accordion |
 | Studio | `about.html` | Parallax collage, founder story, values, team, stats, awards list |
 | Contact | `contact.html` | Four-step booking form with validation, availability calendar, prefill from pricing buttons, success state |
+| 404 | `404.html` | Branded "page not found" page (Vercel serves it automatically) |
 
 Conversion features: a "Check your date" call to action in the header, on every page and as a sticky bar on mobile; availability scarcity; reviews and ratings; "most booked" packages; pricing buttons that prefill the enquiry form (`contact.html?type=wedding&package=Signature`); objection-handling FAQs; and a "reply within 24 hours" promise.
 
@@ -43,7 +44,7 @@ Then open http://localhost:8080.
 
 ## Deploy
 
-Upload the repository as-is to GitHub Pages, Netlify, Vercel or Cloudflare Pages. There's no build step on the host; just commit the built HTML.
+The site is connected to Vercel, which redeploys on every push to `main`. `vercel.json` sets long cache lifetimes for fonts, libraries and images. The repository also works as-is on GitHub Pages, Netlify or Cloudflare Pages.
 
 ## Before going live
 

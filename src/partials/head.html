@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
-<meta name="theme-color" content="#0d0c0b">
+<meta name="theme-color" content="#050505">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Halcyon Studio">
+<meta property="og:site_name" content="Momentum">
 <meta property="og:title" content="{{title}}">
 <meta property="og:description" content="{{description}}">
 <meta property="og:image" content="assets/img/wedding-01.webp">
@@ -24,18 +24,19 @@
   var visited = null, trans = null;
   try { visited = sessionStorage.getItem("hs-visited"); trans = sessionStorage.getItem("hs-transition"); sessionStorage.removeItem("hs-transition"); } catch (e) {}
   if (!reduce) { if (!visited) d.classList.add("is-first-visit"); else if (trans) d.classList.add("is-transitioning-in"); }
-  setTimeout(function () { if (!window.__halcyonReady) { d.classList.add("no-motion"); d.classList.remove("is-first-visit", "is-transitioning-in"); } }, 4000);
+  setTimeout(function () { if (!window.__momentumReady) { d.classList.add("no-motion"); d.classList.remove("is-first-visit", "is-transitioning-in"); } }, 4000);
 })();
 </script>
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body data-page="{{page}}">
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"><i></i><i></i></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"><div class="cursor-ring"></div><div class="cursor-dot"></div></div>
 
 <div class="preloader" aria-hidden="true">
-  <div class="preloader-brand">Halcyon<span class="accent">.</span></div>
+  <div class="preloader-brand">Momentum</div>
   <div class="preloader-frame">
     <img src="assets/img/landscape-01-sm.webp" alt="" loading="lazy">
     <img src="assets/img/portrait-02-sm.webp" alt="" loading="lazy">
@@ -56,7 +57,7 @@
 </div>
 
 <header class="site-header">
-  <a class="logo" href="index.html" data-label="Home" aria-label="Halcyon Studio — home">Halcyon<span class="logo-mark" aria-hidden="true"></span><small>Studio</small></a>
+  <a class="logo" href="index.html" data-label="Home" aria-label="Momentum — home">Momentum<span class="logo-mark" aria-hidden="true"></span></a>
   <nav class="nav" aria-label="Primary">
     <a href="index.html" data-label="Home"{{nav:home}}>Home</a>
     <a href="work.html" data-label="Work"{{nav:work}}>Work</a>
@@ -81,7 +82,7 @@
   </nav>
   <div class="menu-foot">
     <span class="availability-pill" style="display:inline-flex;width:fit-content"><span class="pulse"></span>Now booking 2027 — limited dates</span>
-    <a href="mailto:hello@halcyon.studio">hello@halcyon.studio</a>
+    <a href="mailto:hello@momentum.studio">hello@momentum.studio</a>
     <span>Instagram · Pinterest · Vimeo</span>
   </div>
 </div>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Halcyon Studio — motion & interaction
+   Momentum — motion & interaction
    Requires: gsap, ScrollTrigger, SplitText, CustomEase, Flip, Lenis
    ========================================================================== */
 (() => {
@@ -27,9 +27,9 @@
 
   const { gsap } = window;
   gsap.registerPlugin(ScrollTrigger, SplitText, CustomEase, Flip);
-  CustomEase.create("halcyon", "0.65, 0.05, 0, 1");
+  CustomEase.create("momentum", "0.65, 0.05, 0, 1");
   CustomEase.create("silk", "0.76, 0, 0.24, 1");
-  window.__halcyonReady = true;
+  window.__momentumReady = true;
 
   /* ------------------------------------------------------------------ */
   /* Smooth scroll                                                       */
@@ -76,7 +76,7 @@
     return new Promise((resolve) => {
       const tl = gsap.timeline({ onComplete: () => { pre.remove(); lenis && lenis.start(); resolve(); } });
       tl.from([".preloader-brand", ".preloader-meta"], { yPercent: 100, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.1 }, 0)
-        .from(frame, { clipPath: "inset(100% 0 0 0)", duration: 1.1, ease: "halcyon" }, 0.1)
+        .from(frame, { clipPath: "inset(100% 0 0 0)", duration: 1.1, ease: "momentum" }, 0.1)
         .to(counter, {
           v: 100, duration: 2.4, ease: "power2.inOut",
           onUpdate: () => { count.textContent = String(Math.round(counter.v)).padStart(2, "0"); },
@@ -137,8 +137,8 @@
       if (url.pathname === location.pathname && url.hash) return;
       if (url.pathname === location.pathname && url.search === location.search) { e.preventDefault(); scrollTo(0); return; }
       e.preventDefault();
-      const label = a.dataset.label || (a.textContent || "").trim().split("\n")[0].trim() || "Halcyon";
-      store.set("hs-label", label.length > 28 ? "Halcyon" : label);
+      const label = a.dataset.label || (a.textContent || "").trim().split("\n")[0].trim() || "Momentum";
+      store.set("hs-label", label.length > 28 ? "Momentum" : label);
       const panel = $(".transition-panel--1");
       const accent = $(".transition-panel--2");
       const span = $(".transition-label span");
@@ -320,7 +320,7 @@
       const dir = el.dataset.dir || "up";
       const from = { up: "inset(100% 0% 0% 0%)", down: "inset(0% 0% 100% 0%)", left: "inset(0% 100% 0% 0%)", right: "inset(0% 0% 0% 100%)" }[dir];
       const tl = gsap.timeline({ paused: true, delay: parseFloat(el.dataset.delay || 0) });
-      tl.fromTo(el, { clipPath: from }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "halcyon" });
+      tl.fromTo(el, { clipPath: from }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.5, ease: "momentum" });
       if (img && !el.hasAttribute("data-parallax")) tl.fromTo(img, { scale: 1.35 }, { scale: 1, duration: 1.9, ease: "expo.out" }, 0);
       if (isIntro) onIntro(() => tl.play());
       else ScrollTrigger.create({ trigger: el, start: "top 90%", once: true, onEnter: () => tl.play() });
@@ -465,7 +465,7 @@
       scrollTrigger: { trigger: zoom, start: "top top", end: "+=180%", scrub: 1, pin: true, anticipatePin: 1 },
     })
       .to(".zoom-media", { width: "100vw", height: "100vh", borderRadius: 0, ease: "power2.inOut", duration: 1 }, 0)
-      .to(".zoom-media img", { scale: 1, ease: "power2.inOut", duration: 1 }, 0)
+      .fromTo(".zoom-media img", { filter: "grayscale(1) brightness(.85)" }, { scale: 1, filter: "grayscale(0) brightness(1)", ease: "power2.inOut", duration: 1 }, 0)
       .to(words[0], { xPercent: () => (stacked() ? 0 : -140), yPercent: () => (stacked() ? -160 : 0), opacity: 0, ease: "power2.in", duration: 0.8 }, 0)
       .to(words[1], { xPercent: () => (stacked() ? 0 : 140), yPercent: () => (stacked() ? 160 : 0), opacity: 0, ease: "power2.in", duration: 0.8 }, 0)
       .to(".zoom-overlay", { opacity: 1, duration: 0.3 }, 0.85)
@@ -539,7 +539,7 @@
       track.innerHTML = original + original;
       $$(".marquee-item", track).slice(track.children.length / 2).forEach((n) => n.setAttribute("aria-hidden", "true"));
       if (reduced) return;
-      const baseSpeed = parseFloat(m.dataset.speed || 0.6);
+      const baseSpeed = parseFloat(m.dataset.marqueeSpeed || 0.6);
       let dir = m.dataset.reverse ? 1 : -1;
       let x = 0;
       let half = track.scrollWidth / 2;
@@ -620,11 +620,11 @@
           if (o === item) return;
           o.classList.remove("is-open");
           $(".faq-q", o).setAttribute("aria-expanded", "false");
-          gsap.to($(".faq-a", o), { height: 0, duration: reduced ? 0 : 0.7, ease: "halcyon" });
+          gsap.to($(".faq-a", o), { height: 0, duration: reduced ? 0 : 0.7, ease: "momentum" });
         });
         item.classList.toggle("is-open", open);
         q.setAttribute("aria-expanded", String(open));
-        gsap.to(a, { height: open ? "auto" : 0, duration: reduced ? 0 : 0.8, ease: "halcyon", onComplete: () => ScrollTrigger.refresh() });
+        gsap.to(a, { height: open ? "auto" : 0, duration: reduced ? 0 : 0.8, ease: "momentum", onComplete: () => ScrollTrigger.refresh() });
       });
     });
   }
@@ -700,7 +700,7 @@
       if (reduced) { ScrollTrigger.refresh(); return; }
       items.forEach((it) => { const m = $(".media", it); if (m) m.style.clipPath = "none"; const im = $("img", it); if (im) gsap.set(im, { scale: 1 }); });
       Flip.from(state, {
-        duration: 0.9, ease: "halcyon", scale: true, absolute: true, nested: true,
+        duration: 0.9, ease: "momentum", scale: true, absolute: true, nested: true,
         onEnter: (els) => gsap.fromTo(els, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "expo.out" }),
         onLeave: (els) => gsap.to(els, { opacity: 0, scale: 0.85, duration: 0.5, ease: "power2.in" }),
         onComplete: () => ScrollTrigger.refresh(),
@@ -925,7 +925,7 @@
         }
         scrollTo(shell, { offset: -120 });
       } catch (err) {
-        errBox.textContent = "Sorry — something went wrong. Please email us directly at hello@halcyon.studio.";
+        errBox.textContent = "Sorry — something went wrong. Please email us directly at hello@momentum.studio.";
         nextText.textContent = "Send enquiry";
         next.disabled = false;
       }
@@ -986,6 +986,20 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Glow spotlight cards                                                */
+  /* ------------------------------------------------------------------ */
+  function initGlow() {
+    if (!finePointer) return;
+    $$("[data-glow]").forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        el.style.setProperty("--my", `${e.clientY - r.top}px`);
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Boot                                                                */
   /* ------------------------------------------------------------------ */
   initTransitions();
@@ -1012,6 +1026,7 @@
   initWork();
   initBooking();
   initFooter();
+  initGlow();
 
   window.addEventListener("load", () => ScrollTrigger.refresh());
   startIntro();

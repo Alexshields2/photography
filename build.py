@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tiny static-site builder for Halcyon Studio.
+"""Tiny static-site builder for Momentum.
 
 Edit pages in src/pages/ and shared blocks in src/partials/, then run:
 
@@ -140,6 +140,9 @@ def main() -> None:
     for page in pages:
         meta, body = parse_meta(page.read_text(encoding="utf-8"))
         out = render(body, meta)
+        if meta.get("page") == "404":
+            # Served for any missing URL, so asset paths must resolve from the site root.
+            out = out.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n<base href="/">', 1)
         leftover = re.findall(r"\{\{.*?\}\}", out)
         if leftover:
             raise SystemExit(f"{page.name}: unresolved tags {leftover[:3]}")
